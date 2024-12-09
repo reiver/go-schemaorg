@@ -39,6 +39,7 @@ func TestThing_marshal(t *testing.T) {
 				Thing: schemaorg.Thing{
 
 					AdditionalType:            opt.Something("That-Thing"),
+					AlternateName:             opt.Something("id-123abc"),
 					Description:               opt.Something("This is something that is some type of thing."),
 					DisambiguatingDescription: opt.Something("It's mine."),
 					Identifier:                opt.Something("055d2ddb-fd55-48c0-892b-28f1adcc0465"),
@@ -53,6 +54,8 @@ func TestThing_marshal(t *testing.T) {
 					`,`+
 					`"thing":{`+
 						`"additionalType":"That-Thing"`+
+						`,`+
+						`"alternateName":"id-123abc"`+
 						`,`+
 						`"description":"This is something that is some type of thing."`+
 						`,`+
