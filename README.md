@@ -4,6 +4,40 @@ Package **schemaorg** provides an implementation of the [schema.org](http://sche
 
 Use https://github.com/reiver/go-jsonld to marshal types in this package.
 
+## Example
+
+```golang
+import (
+	"github.com/reiver/go-activitystreams"
+	"github.com/reiver/go-jsonld"
+	"github.com/reiver/go-schemaorg"
+)
+
+// ...
+
+var person = activitystreams.Person{
+
+	// ...
+
+	Attachments: []any{
+		schemaorg.PropertyValue{
+			Name:  "Location",
+			Value: "Metro Vancouver",
+		},
+		schemaorg.PropertyValue{
+			Name:  "Home-Page",
+			Value: "http://example.com/~joeblow",
+		},
+	},
+
+	// ...
+}.
+
+// ...
+
+bytes, err := jsonld.Marshal()
+```
+
 ## Documention
 
 Online documentation, which includes examples, can be found at: http://godoc.org/github.com/reiver/go-schemaorg
