@@ -2,6 +2,8 @@
 
 Package **schemaorg** provides an implementation of the [schema.org](http://schema.org/) vocabulary, as they are used on the Fediverse, for the Go programming language.
 
+Use https://github.com/reiver/go-jsonld to marshal types in this package.
+
 ## Documention
 
 Online documentation, which includes examples, can be found at: http://godoc.org/github.com/reiver/go-schemaorg
