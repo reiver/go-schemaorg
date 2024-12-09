@@ -1,6 +1,6 @@
 # go-schemaorg
 
-Package **schemaorg** provides an implementation of the schema.org vocabulary, as they are used on the Fediverse, for the Go programming language.
+Package **schemaorg** provides an implementation of the [schema.org](http://schema.org/) vocabulary, as they are used on the Fediverse, for the Go programming language.
 
 ## Documention
 
