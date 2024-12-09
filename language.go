@@ -1,6 +1,7 @@
 package schemaorg
 
 import (
+	"github.com/reiver/go-json"
 	"github.com/reiver/go-jsonld"
 	"github.com/reiver/go-opt"
 )
