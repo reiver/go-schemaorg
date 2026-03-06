@@ -13,7 +13,7 @@ import (
 
 func TestThing_marshal(t *testing.T) {
 
-	const context string = `"@context":{"schema":"https://schema.org/","additionalType":"schema:additionalType","alternateName":"schema:alternateName","description":"schema:description","disambiguatingDescription":"schema:disambiguatingDescription","identifier":"schema:identifier","name":"schema:name","type":"schema:type","url":"schema:url"}`
+	const context string = `"@context":{"schema":"https://schema.org/","@id":"schema:@id","additionalType":"schema:additionalType","alternateName":"schema:alternateName","description":"schema:description","disambiguatingDescription":"schema:disambiguatingDescription","identifier":"schema:identifier","image":"schema:image","mainEntityOfPage":"schema:mainEntityOfPage","name":"schema:name","owner":"schema:owner","potentialAction":"schema:potentialAction","sameAs":"schema:sameAs","subjectOf":"schema:subjectOf","type":"schema:type","url":"schema:url"}`
 
 	type EmbeddedThing struct {
 		Thing schemaorg.Thing `json:"thing,omitempty"`
@@ -53,6 +53,8 @@ func TestThing_marshal(t *testing.T) {
 					context+
 					`,`+
 					`"thing":{`+
+						`"type":"Some-Type"`+
+						`,`+
 						`"additionalType":"That-Thing"`+
 						`,`+
 						`"alternateName":"id-123abc"`+
@@ -64,8 +66,6 @@ func TestThing_marshal(t *testing.T) {
 						`"identifier":"055d2ddb-fd55-48c0-892b-28f1adcc0465"`+
 						`,`+
 						`"name":"Something"`+
-						`,`+
-						`"type":"Some-Type"`+
 						`,`+
 						`"url":"http://example.com/somewhere.php"`+
 					`}`+
