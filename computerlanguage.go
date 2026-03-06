@@ -11,6 +11,8 @@ type ComputerLanguage struct {
 	NameSpace jsonld.NameSpace `jsonld:"https://schema.org/"`
 	Prefix    jsonld.Prefix    `jsonld:"schema"`
 
+	Type json.Const[string] `json:"@type" json.value:"ComputerLanguage"`
+
 	// An additional type for the thing.
 	AdditionalType            opt.Optional[string] `json:"additionalType,omitempty"`            // https://schema.org/additionalType
 
@@ -30,8 +32,6 @@ type ComputerLanguage struct {
 
 	// The name of the thing.
 	Name                      opt.Optional[string] `json:"name,omitempty"`                      // https://schema.org/name
-
-	Type                        json.Const[string] `json:"type" json.value:"ComputerLanguage"`
 
 	// URL of the thing.
 	URL                       opt.Optional[string] `json:"url,omitempty"`                       // https://schema.org/url
