@@ -1,28 +1,16 @@
 package schemaorg
 
 const (
-	TypeAboutPage           = "AboutPage"
 	TypeAction              = "Action"
 	TypeAudience            = "Audience"
 	TypeBusinessAudience    = "BusinessAudience"
-	TypeCheckoutPage        = "CheckoutPage"
-	TypeCollectionPage      = "CollectionPage"
-	TypeContactPage         = "ContactPage"
 	TypeComputerLanguage    = "ComputerLanguage"
 	TypeEducationalAudience = "EducationalAudience"
-	TypeFAQPage             = "FAQPage"
 	TypeFlight              = "Flight"
 	TypeIntangible          = "Intangible"
-	TypeItemPage            = "ItemPage"
 	TypeMedicalAudience     = "MedicalAudiencee"
-	TypeMedicalWebPage      = "MedicalWebPage"
 	TypeParentAudience      = "ParentAudience"
 	TypePeopleAudience      = "PeopleAudience"
-	TypeProfilePage         = "ProfilePage"
-	TypeQAPage              = "QAPage"
-	TypeRealEstateListing   = "RealEstateListing"
 	TypeResearcher          = "Researcher"
-	TypeSearchResultsPage   = "SearchResultsPage"
 	TypeVirtualLocation     = "VirtualLocation"
-	TypeWebPage             = "WebPage"
 )
