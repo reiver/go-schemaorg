@@ -19,7 +19,7 @@ type Thing struct {
 	DisambiguatingDescription opt.Optional[string] `json:"disambiguatingDescription,omitempty"` // https://schema.org/disambiguatingDescription
 	Identifier                opt.Optional[string] `json:"identifier,omitempty"`                // https://schema.org/identifier
 	Image                     opt.Optional[string] `json:"image,omitempty"`                     // https://schema.org/image
-	MainEntityOfPage          opt.Optional[string] `json:"mainEntityOfPage,omitempty"`          // https://schema.org/mainEntityOfPage
+	MainEntityOfPage       []ProtoCreativeWork `json:"mainEntityOfPage,omitempty"`          // https://schema.org/mainEntityOfPage
 	Name                      opt.Optional[string] `json:"name,omitempty"`                      // https://schema.org/name
 	Owner                     opt.Optional[string] `json:"owner,omitempty"`                     // https://schema.org/owner
 	PotentialAction           opt.Optional[string] `json:"potentialAction,omitempty"`           // https://schema.org/potentialAction
