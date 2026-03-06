@@ -11,6 +11,7 @@ type MonetaryAmount struct {
 	NameSpace jsonld.NameSpace `jsonld:"https://schema.org/"`
 	Prefix    jsonld.Prefix    `jsonld:"schema"`
 
+	ID opt.Optional[string] `json:"@id"`
 	Type json.Const[string] `json:"@type" json.value:"MonetaryAmount"`
 
 	AdditionalType            opt.Optional[string] `json:"additionalType,omitempty"`            // https://schema.org/additionalType
