@@ -21,7 +21,7 @@ type MonetaryAmount struct {
 	DisambiguatingDescription opt.Optional[string] `json:"disambiguatingDescription,omitempty"` // https://schema.org/disambiguatingDescription
 	Identifier                opt.Optional[string] `json:"identifier,omitempty"`                // https://schema.org/identifier
 	Image                     opt.Optional[string] `json:"image,omitempty"`                     // https://schema.org/image
-	MainEntityOfPage          opt.Optional[string] `json:"mainEntityOfPage,omitempty"`          // https://schema.org/mainEntityOfPage
+	MainEntityOfPage       []ProtoCreativeWork `json:"mainEntityOfPage,omitempty"`          // https://schema.org/mainEntityOfPage
 	MaxValue                  opt.Optional[string] `json:"maxValue,omitempty,bare"`             // https://schema.org/maxValue
 	MinValue                  opt.Optional[string] `json:"minValue,omitempty,bare"`             // https://schema.org/minValue
 	Name                      opt.Optional[string] `json:"name,omitempty"`                      // https://schema.org/name
