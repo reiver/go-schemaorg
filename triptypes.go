@@ -1,9 +1,9 @@
 package schemaorg
 
 const (
-	TypeBoatTrip            = "BoatTrip"
-	TypeBusTrip             = "BusTrip"
-	TypeTouristTrip         = "TouristTrip"
-	TypeTrainTrip           = "TrainTrip"
-	TypeTrip                = "Trip"
+	TypeBoatTrip    = "BoatTrip"
+	TypeBusTrip     = "BusTrip"
+	TypeTouristTrip = "TouristTrip"
+	TypeTrainTrip   = "TrainTrip"
+	TypeTrip        = "Trip"
 )
