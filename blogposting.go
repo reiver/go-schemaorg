@@ -102,7 +102,7 @@ type BlogPosting struct {
 	LearningResourceType      opt.Optional[string] `json:"learningResourceType,omitempty"`      // https://schema.org/learningResourceType
 	License                   opt.Optional[string] `json:"license,omitempty"`                   // https://schema.org/license
 	LocationCreated           opt.Optional[string] `json:"locationCreated,omitempty"`           // https://schema.org/locationCreated
-	MainEntity                opt.Optional[string] `json:"mainEntity,omitempty"`                // https://schema.org/mainEntity
+	MainEntity                []ProtoThing         `json:"mainEntity,omitempty"`                // https://schema.org/mainEntity
 	Maintainer                opt.Optional[string] `json:"maintainer,omitempty"`                // https://schema.org/maintainer
 	Material                  opt.Optional[string] `json:"material,omitempty"`                  // https://schema.org/material
 	MaterialExtent            opt.Optional[string] `json:"materialExtent,omitempty"`            // https://schema.org/materialExtent
@@ -275,6 +275,7 @@ func (receiver BlogPosting) ProtoCreativeWork() AnyCreativeWork {
 		LearningResourceType:      receiver.LearningResourceType,
 		License:                   receiver.License,
 		LocationCreated:           receiver.LocationCreated,
+		MainEntity:                receiver.MainEntity,
 		Maintainer:                receiver.Maintainer,
 		Material:                  receiver.Material,
 		MaterialExtent:            receiver.MaterialExtent,

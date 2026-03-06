@@ -40,14 +40,14 @@ func TestFAQPage_marshal(t *testing.T) {
 
 					Name: opt.Something("Frequently Asked Questions"),
 					URL:  opt.Something("https://example.com/faq"),
-					MainEntity: []schemaorg.Question{
-						{
+					MainEntity: []schemaorg.ProtoThing{
+						schemaorg.Question{
 							Name: opt.Something("What is Go?"),
 							AcceptedAnswer: opt.Something(schemaorg.Answer{
 								Text: opt.Something("Go is a programming language."),
 							}),
 						},
-						{
+						schemaorg.Question{
 							Name: opt.Something("Is Go fast?"),
 							AcceptedAnswer: opt.Something(schemaorg.Answer{
 								Text: opt.Something("Yes, Go is very fast."),
