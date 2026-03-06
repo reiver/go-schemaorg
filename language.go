@@ -12,7 +12,7 @@ type Language struct {
 	Prefix    jsonld.Prefix    `jsonld:"schema"`
 
 	ID opt.Optional[string] `json:"@id"`
-	Type json.Const[string] `json:"type" json.value:"Language"`
+	Type json.Const[string] `json:"@type" json.value:"Language"`
 
 	AdditionalType            opt.Optional[string] `json:"additionalType,omitempty"`            // https://schema.org/additionalType
 	AlternateName             opt.Optional[string] `json:"alternateName,omitempty"`             // https://schema.org/alternateName

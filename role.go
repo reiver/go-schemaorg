@@ -41,7 +41,7 @@ type Role struct {
 	// The start date and time of the item (in ISO 8601 date format).
 	StartDate                 opt.Optional[string] `json:"startDate,omitempty"`                 // https://schema.org/startDate
 
-	Type                        json.Const[string] `json:"type" json.value:"Role"`
+	Type                        json.Const[string] `json:"@type" json.value:"Role"`
 
 	// URL of the thing.
 	URL                       opt.Optional[string] `json:"url,omitempty"`                       // https://schema.org/url
