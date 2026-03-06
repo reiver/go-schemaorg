@@ -3,6 +3,7 @@ package schemaorg
 import (
 	"github.com/reiver/go-json"
 	"github.com/reiver/go-jsonld"
+	jsonldstrings "github.com/reiver/go-jsonld/strings"
 	"github.com/reiver/go-opt"
 )
 
@@ -22,7 +23,7 @@ type Question struct {
 	DisambiguatingDescription opt.Optional[string] `json:"disambiguatingDescription,omitempty"` // https://schema.org/disambiguatingDescription
 	Identifier                opt.Optional[string] `json:"identifier,omitempty"`                // https://schema.org/identifier
 	Image                     opt.Optional[string] `json:"image,omitempty"`                     // https://schema.org/image
-	MainEntityOfPage          opt.Optional[string] `json:"mainEntityOfPage,omitempty"`          // https://schema.org/mainEntityOfPage
+	MainEntityOfPage       []ProtoCreativeWork `json:"mainEntityOfPage,omitempty"`          // https://schema.org/mainEntityOfPage
 	Name                      opt.Optional[string] `json:"name,omitempty"`                      // https://schema.org/name
 	Owner                     opt.Optional[string] `json:"owner,omitempty"`                     // https://schema.org/owner
 	PotentialAction           opt.Optional[string] `json:"potentialAction,omitempty"`           // https://schema.org/potentialAction
@@ -157,4 +158,28 @@ type Question struct {
 	AnswerCount               opt.Optional[string]  `json:"answerCount,omitempty,bare"`          // https://schema.org/answerCount
 	EduQuestionType           opt.Optional[string]  `json:"eduQuestionType,omitempty"`           // https://schema.org/eduQuestionType
 	SuggestedAnswer           opt.Optional[Answer]  `json:"suggestedAnswer,omitempty"`           // https://schema.org/suggestedAnswer
+}
+
+var _ ProtoThing = Question{}
+
+func (receiver Question) ProtoThing() AnyThing {
+	const thingType string = TypeQuestion
+
+	return AnyThing{
+		ID:                        receiver.ID,
+		Type:                      jsonldstrings.Something(thingType),
+		AdditionalType:            receiver.AdditionalType,
+		AlternateName:             receiver.AlternateName,
+		Description:               receiver.Description,
+		DisambiguatingDescription: receiver.DisambiguatingDescription,
+		Identifier:                receiver.Identifier,
+		Image:                     receiver.Image,
+		MainEntityOfPage:          receiver.MainEntityOfPage,
+		Name:                      receiver.Name,
+		Owner:                     receiver.Owner,
+		PotentialAction:           receiver.PotentialAction,
+		SameAs:                    receiver.SameAs,
+		SubjectOf:                 receiver.SubjectOf,
+		URL:                       receiver.URL,
+	}
 }
