@@ -13,7 +13,7 @@ import (
 
 func TestGeoCoordinates_marshal(t *testing.T) {
 
-	const context string = `"@context":{"schema":"https://schema.org/","additionalType":"schema:additionalType","alternateName":"schema:alternateName","description":"schema:description","disambiguatingDescription":"schema:disambiguatingDescription","elevation":"schema:elevation","identifier":"schema:identifier","latitude":"schema:latitude","longitude":"schema:longitude","name":"schema:name","type":"schema:type","url":"schema:url"}`
+	const context string = `"@context":{"schema":"https://schema.org/","@id":"schema:@id","@type":"schema:@type","additionalType":"schema:additionalType","alternateName":"schema:alternateName","description":"schema:description","disambiguatingDescription":"schema:disambiguatingDescription","elevation":"schema:elevation","identifier":"schema:identifier","image":"schema:image","latitude":"schema:latitude","longitude":"schema:longitude","mainEntityOfPage":"schema:mainEntityOfPage","name":"schema:name","owner":"schema:owner","potentialAction":"schema:potentialAction","sameAs":"schema:sameAs","subjectOf":"schema:subjectOf","url":"schema:url"}`
 
 	type EmbeddedGeoCoordinates struct {
 		GeoCoordinates schemaorg.GeoCoordinates `json:"thing,omitempty"`
@@ -25,7 +25,7 @@ func TestGeoCoordinates_marshal(t *testing.T) {
 	}{
 		{
 			Value: schemaorg.GeoCoordinates{},
-			Expected: []byte(`{`+context+`,"type":"GeoCoordinates"}`),
+			Expected: []byte(`{`+context+`,"@type":"GeoCoordinates"}`),
 		},
 		{
 			Value: EmbeddedGeoCoordinates{},
@@ -55,6 +55,8 @@ func TestGeoCoordinates_marshal(t *testing.T) {
 					context+
 					`,`+
 					`"thing":{`+
+						`"@type":"GeoCoordinates"`+
+						`,`+
 						`"additionalType":"That-GeoCoordinates"`+
 						`,`+
 						`"alternateName":"id-123abc"`+
@@ -63,19 +65,17 @@ func TestGeoCoordinates_marshal(t *testing.T) {
 						`,`+
 						`"disambiguatingDescription":"It's mine."`+
 						`,`+
-						`"elevation":"20.17"`+
-						`,`+
 						`"identifier":"055d2ddb-fd55-48c0-892b-28f1adcc0465"`+
+						`,`+
+						`"name":"Something"`+
+						`,`+
+						`"url":"http://example.com/somewhere.php"`+
+						`,`+
+						`"elevation":"20.17"`+
 						`,`+
 						`"latitude":"17.18"`+
 						`,`+
 						`"longitude":"10.03"`+
-						`,`+
-						`"name":"Something"`+
-						`,`+
-						`"type":"GeoCoordinates"`+
-						`,`+
-						`"url":"http://example.com/somewhere.php"`+
 					`}`+
 				`}`),
 		},
