@@ -183,3 +183,5 @@ func (receiver Question) ProtoThing() AnyThing {
 		URL:                       receiver.URL,
 	}
 }
+
+var _ ProtoCreativeWork = Question{}
