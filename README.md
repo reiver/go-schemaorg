@@ -4,6 +4,9 @@ Package **schemaorg** provides an implementation of the [schema.org](http://sche
 
 Use https://github.com/reiver/go-jsonld to marshal types in this package.
 
+For a full list of schema.org types, see:
+https://schema.org/docs/full.html
+
 ## Example
 
 ```golang
