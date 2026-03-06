@@ -4,7 +4,7 @@ go 1.24.3
 
 require (
 	github.com/reiver/go-json v0.0.0-20260306160333-8285682dd9de
-	github.com/reiver/go-jsonld v0.0.0-20241209112816-29f673dbf92c
+	github.com/reiver/go-jsonld v0.0.0-20250611053742-8fec84a9f5f8
 	github.com/reiver/go-opt v0.0.0-20240809035328-1ff08dec9bc4
 )
 
