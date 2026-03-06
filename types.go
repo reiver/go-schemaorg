@@ -5,8 +5,6 @@ const (
 	TypeAction              = "Action"
 	TypeAnswer              = "Answer"
 	TypeAudience            = "Audience"
-	TypeBoatTrip            = "BoatTrip"
-	TypeBusTrip             = "BusTrip"
 	TypeBusinessAudience    = "BusinessAudience"
 	TypeCheckoutPage        = "CheckoutPage"
 	TypeCollectionPage      = "CollectionPage"
@@ -31,9 +29,6 @@ const (
 	TypeRealEstateListing   = "RealEstateListing"
 	TypeResearcher          = "Researcher"
 	TypeSearchResultsPage   = "SearchResultsPage"
-	TypeTouristTrip         = "TouristTrip"
-	TypeTrainTrip           = "TrainTrip"
-	TypeTrip                = "Trip"
 	TypeVirtualLocation     = "VirtualLocation"
 	TypeWebPage             = "WebPage"
 )
