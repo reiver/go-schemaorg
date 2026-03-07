@@ -1,21 +1,17 @@
 package schemaorg
 
 import (
-	"github.com/reiver/go-json"
 	"github.com/reiver/go-jsonld"
-	jsonldstrings "github.com/reiver/go-jsonld/strings"
 	"github.com/reiver/go-opt"
 )
 
-// https://schema.org/FAQPage
-type FAQPage struct {
+// AnyWebPage represents a general schema.org WebPage, that could be used to represent any schema.org WebPage type including sub-types.
+type AnyWebPage struct {
 	NameSpace jsonld.NameSpace `jsonld:"https://schema.org/"`
 	Prefix    jsonld.Prefix    `jsonld:"schema"`
 
-	ID opt.Optional[string] `json:"@id,omitempty"`
-	Type json.Const[string] `json:"@type" json.value:"FAQPage"`
-
-	// ---- Thing properties ----
+	ID   opt.Optional[string] `json:"@id,omitempty"`
+	Type jsonld.Strings       `json:"@type,omitempty"`
 
 	AdditionalType            opt.Optional[string] `json:"additionalType,omitempty"`            // https://schema.org/additionalType
 	AlternateName             opt.Optional[string] `json:"alternateName,omitempty"`             // https://schema.org/alternateName
@@ -30,8 +26,6 @@ type FAQPage struct {
 	SameAs                    opt.Optional[string] `json:"sameAs,omitempty"`                    // https://schema.org/sameAs
 	SubjectOf                 opt.Optional[string] `json:"subjectOf,omitempty"`                 // https://schema.org/subjectOf
 	URL                       opt.Optional[string] `json:"url,omitempty"`                       // https://schema.org/url
-
-	// ---- CreativeWork properties ----
 
 	About                     opt.Optional[string] `json:"about,omitempty"`                     // https://schema.org/about
 	Abstract                  opt.Optional[string] `json:"abstract,omitempty"`                  // https://schema.org/abstract
@@ -102,7 +96,7 @@ type FAQPage struct {
 	LearningResourceType      opt.Optional[string] `json:"learningResourceType,omitempty"`      // https://schema.org/learningResourceType
 	License                   opt.Optional[string] `json:"license,omitempty"`                   // https://schema.org/license
 	LocationCreated           opt.Optional[string] `json:"locationCreated,omitempty"`           // https://schema.org/locationCreated
-	MainEntity                []ProtoThing         `json:"mainEntity,omitempty"`                // https://schema.org/mainEntity
+	MainEntity             []ProtoThing         `json:"mainEntity,omitempty"`                // https://schema.org/mainEntity
 	Maintainer                opt.Optional[string] `json:"maintainer,omitempty"`                // https://schema.org/maintainer
 	Material                  opt.Optional[string] `json:"material,omitempty"`                  // https://schema.org/material
 	MaterialExtent            opt.Optional[string] `json:"materialExtent,omitempty"`            // https://schema.org/materialExtent
@@ -145,8 +139,6 @@ type FAQPage struct {
 	WorkExample               opt.Optional[string] `json:"workExample,omitempty"`               // https://schema.org/workExample
 	WorkTranslation           opt.Optional[string] `json:"workTranslation,omitempty"`           // https://schema.org/workTranslation
 
-	// ---- WebPage properties ----
-
 	Breadcrumb                opt.Optional[string] `json:"breadcrumb,omitempty"`                // https://schema.org/breadcrumb
 	LastReviewed              opt.Optional[string] `json:"lastReviewed,omitempty"`              // https://schema.org/lastReviewed
 	MainContentOfPage         opt.Optional[string] `json:"mainContentOfPage,omitempty"`         // https://schema.org/mainContentOfPage
@@ -156,310 +148,4 @@ type FAQPage struct {
 	SignificantLink           opt.Optional[string] `json:"significantLink,omitempty"`           // https://schema.org/significantLink
 	Speakable                 opt.Optional[string] `json:"speakable,omitempty"`                 // https://schema.org/speakable
 	Specialty                 opt.Optional[string] `json:"specialty,omitempty"`                 // https://schema.org/specialty
-}
-
-var _ ProtoThing = FAQPage{}
-
-func (receiver FAQPage) ProtoThing() AnyThing {
-	const thingType string = TypeFAQPage
-
-	return AnyThing{
-		ID:                        receiver.ID,
-		Type:                      jsonldstrings.Something(thingType),
-		AdditionalType:            receiver.AdditionalType,
-		AlternateName:             receiver.AlternateName,
-		Description:               receiver.Description,
-		DisambiguatingDescription: receiver.DisambiguatingDescription,
-		Identifier:                receiver.Identifier,
-		Image:                     receiver.Image,
-		MainEntityOfPage:          receiver.MainEntityOfPage,
-		Name:                      receiver.Name,
-		Owner:                     receiver.Owner,
-		PotentialAction:           receiver.PotentialAction,
-		SameAs:                    receiver.SameAs,
-		SubjectOf:                 receiver.SubjectOf,
-		URL:                       receiver.URL,
-	}
-}
-
-var _ ProtoCreativeWork = FAQPage{}
-
-func (receiver FAQPage) ProtoCreativeWork() AnyCreativeWork {
-	const thingType string = TypeFAQPage
-
-	return AnyCreativeWork{
-		ID:                        receiver.ID,
-		Type:                      jsonldstrings.Something(thingType),
-		AdditionalType:            receiver.AdditionalType,
-		AlternateName:             receiver.AlternateName,
-		Description:               receiver.Description,
-		DisambiguatingDescription: receiver.DisambiguatingDescription,
-		Identifier:                receiver.Identifier,
-		Image:                     receiver.Image,
-		MainEntityOfPage:          receiver.MainEntityOfPage,
-		Name:                      receiver.Name,
-		Owner:                     receiver.Owner,
-		PotentialAction:           receiver.PotentialAction,
-		SameAs:                    receiver.SameAs,
-		SubjectOf:                 receiver.SubjectOf,
-		URL:                       receiver.URL,
-
-		About:                     receiver.About,
-		Abstract:                  receiver.Abstract,
-		AccessMode:                receiver.AccessMode,
-		AccessModeSufficient:      receiver.AccessModeSufficient,
-		AccessibilityAPI:          receiver.AccessibilityAPI,
-		AccessibilityControl:      receiver.AccessibilityControl,
-		AccessibilityFeature:      receiver.AccessibilityFeature,
-		AccessibilityHazard:       receiver.AccessibilityHazard,
-		AccessibilitySummary:      receiver.AccessibilitySummary,
-		AccountablePerson:         receiver.AccountablePerson,
-		AcquireLicensePage:        receiver.AcquireLicensePage,
-		AggregateRating:           receiver.AggregateRating,
-		AlternativeHeadline:       receiver.AlternativeHeadline,
-		ArchivedAt:                receiver.ArchivedAt,
-		Assesses:                  receiver.Assesses,
-		AssociatedMedia:           receiver.AssociatedMedia,
-		Audience:                  receiver.Audience,
-		Audio:                     receiver.Audio,
-		Author:                    receiver.Author,
-		Award:                     receiver.Award,
-		Character:                 receiver.Character,
-		Citation:                  receiver.Citation,
-		CommentField:              receiver.CommentField,
-		CommentCount:              receiver.CommentCount,
-		ConditionsOfAccess:        receiver.ConditionsOfAccess,
-		ContentLocation:           receiver.ContentLocation,
-		ContentRating:             receiver.ContentRating,
-		ContentReferenceTime:      receiver.ContentReferenceTime,
-		Contributor:               receiver.Contributor,
-		CopyrightHolder:           receiver.CopyrightHolder,
-		CopyrightNotice:           receiver.CopyrightNotice,
-		CopyrightYear:             receiver.CopyrightYear,
-		Correction:                receiver.Correction,
-		CountryOfOrigin:           receiver.CountryOfOrigin,
-		CreativeWorkStatus:        receiver.CreativeWorkStatus,
-		Creator:                   receiver.Creator,
-		CreditText:                receiver.CreditText,
-		DateCreated:               receiver.DateCreated,
-		DateModified:              receiver.DateModified,
-		DatePublished:             receiver.DatePublished,
-		DigitalSourceType:         receiver.DigitalSourceType,
-		DiscussionURL:             receiver.DiscussionURL,
-		DisplayLocation:           receiver.DisplayLocation,
-		EditEIDR:                  receiver.EditEIDR,
-		Editor:                    receiver.Editor,
-		EducationalAlignment:      receiver.EducationalAlignment,
-		EducationalLevel:          receiver.EducationalLevel,
-		EducationalUse:            receiver.EducationalUse,
-		Encoding:                  receiver.Encoding,
-		EncodingFormat:            receiver.EncodingFormat,
-		ExampleOfWork:             receiver.ExampleOfWork,
-		Expires:                   receiver.Expires,
-		Funder:                    receiver.Funder,
-		Funding:                   receiver.Funding,
-		Genre:                     receiver.Genre,
-		HasPart:                   receiver.HasPart,
-		Headline:                  receiver.Headline,
-		InLanguage:                receiver.InLanguage,
-		InteractionStatistic:      receiver.InteractionStatistic,
-		InteractivityType:         receiver.InteractivityType,
-		InterpretedAsClaim:        receiver.InterpretedAsClaim,
-		IsAccessibleForFree:       receiver.IsAccessibleForFree,
-		IsBasedOn:                 receiver.IsBasedOn,
-		IsFamilyFriendly:          receiver.IsFamilyFriendly,
-		IsPartOf:                  receiver.IsPartOf,
-		Keywords:                  receiver.Keywords,
-		LearningResourceType:      receiver.LearningResourceType,
-		License:                   receiver.License,
-		LocationCreated:           receiver.LocationCreated,
-		MainEntity:                receiver.MainEntity,
-		Maintainer:                receiver.Maintainer,
-		Material:                  receiver.Material,
-		MaterialExtent:            receiver.MaterialExtent,
-		Mentions:                  receiver.Mentions,
-		Offers:                    receiver.Offers,
-		Pattern:                   receiver.Pattern,
-		Position:                  receiver.Position,
-		Producer:                  receiver.Producer,
-		Provider:                  receiver.Provider,
-		Publication:               receiver.Publication,
-		Publisher:                  receiver.Publisher,
-		PublisherImprint:          receiver.PublisherImprint,
-		PublishingPrinciples:      receiver.PublishingPrinciples,
-		RecordedAt:                receiver.RecordedAt,
-		ReleasedEvent:             receiver.ReleasedEvent,
-		Review:                    receiver.Review,
-		SchemaVersion:             receiver.SchemaVersion,
-		SDDatePublished:           receiver.SDDatePublished,
-		SDLicense:                 receiver.SDLicense,
-		SDPublisher:               receiver.SDPublisher,
-		Size:                      receiver.Size,
-		SourceOrganization:        receiver.SourceOrganization,
-		Spatial:                   receiver.Spatial,
-		SpatialCoverage:           receiver.SpatialCoverage,
-		Sponsor:                   receiver.Sponsor,
-		Teaches:                   receiver.Teaches,
-		Temporal:                  receiver.Temporal,
-		TemporalCoverage:          receiver.TemporalCoverage,
-		Text:                      receiver.Text,
-		Thumbnail:                 receiver.Thumbnail,
-		ThumbnailURL:              receiver.ThumbnailURL,
-		TimeRequired:              receiver.TimeRequired,
-		TranslationOfWork:         receiver.TranslationOfWork,
-		Translator:                receiver.Translator,
-		TypicalAgeRange:           receiver.TypicalAgeRange,
-		UsageInfo:                 receiver.UsageInfo,
-		Version:                   receiver.Version,
-		Video:                     receiver.Video,
-		WordCount:                 receiver.WordCount,
-		WorkExample:               receiver.WorkExample,
-		WorkTranslation:           receiver.WorkTranslation,
-	}
-}
-
-var _ ProtoWebPage = FAQPage{}
-
-func (receiver FAQPage) ProtoWebPage() AnyWebPage {
-	const thingType string = TypeFAQPage
-
-	return AnyWebPage{
-		ID:                        receiver.ID,
-		Type:                      jsonldstrings.Something(thingType),
-		AdditionalType:            receiver.AdditionalType,
-		AlternateName:             receiver.AlternateName,
-		Description:               receiver.Description,
-		DisambiguatingDescription: receiver.DisambiguatingDescription,
-		Identifier:                receiver.Identifier,
-		Image:                     receiver.Image,
-		MainEntityOfPage:          receiver.MainEntityOfPage,
-		Name:                      receiver.Name,
-		Owner:                     receiver.Owner,
-		PotentialAction:           receiver.PotentialAction,
-		SameAs:                    receiver.SameAs,
-		SubjectOf:                 receiver.SubjectOf,
-		URL:                       receiver.URL,
-
-		About:                     receiver.About,
-		Abstract:                  receiver.Abstract,
-		AccessMode:                receiver.AccessMode,
-		AccessModeSufficient:      receiver.AccessModeSufficient,
-		AccessibilityAPI:          receiver.AccessibilityAPI,
-		AccessibilityControl:      receiver.AccessibilityControl,
-		AccessibilityFeature:      receiver.AccessibilityFeature,
-		AccessibilityHazard:       receiver.AccessibilityHazard,
-		AccessibilitySummary:      receiver.AccessibilitySummary,
-		AccountablePerson:         receiver.AccountablePerson,
-		AcquireLicensePage:        receiver.AcquireLicensePage,
-		AggregateRating:           receiver.AggregateRating,
-		AlternativeHeadline:       receiver.AlternativeHeadline,
-		ArchivedAt:                receiver.ArchivedAt,
-		Assesses:                  receiver.Assesses,
-		AssociatedMedia:           receiver.AssociatedMedia,
-		Audience:                  receiver.Audience,
-		Audio:                     receiver.Audio,
-		Author:                    receiver.Author,
-		Award:                     receiver.Award,
-		Character:                 receiver.Character,
-		Citation:                  receiver.Citation,
-		CommentField:              receiver.CommentField,
-		CommentCount:              receiver.CommentCount,
-		ConditionsOfAccess:        receiver.ConditionsOfAccess,
-		ContentLocation:           receiver.ContentLocation,
-		ContentRating:             receiver.ContentRating,
-		ContentReferenceTime:      receiver.ContentReferenceTime,
-		Contributor:               receiver.Contributor,
-		CopyrightHolder:           receiver.CopyrightHolder,
-		CopyrightNotice:           receiver.CopyrightNotice,
-		CopyrightYear:             receiver.CopyrightYear,
-		Correction:                receiver.Correction,
-		CountryOfOrigin:           receiver.CountryOfOrigin,
-		CreativeWorkStatus:        receiver.CreativeWorkStatus,
-		Creator:                   receiver.Creator,
-		CreditText:                receiver.CreditText,
-		DateCreated:               receiver.DateCreated,
-		DateModified:              receiver.DateModified,
-		DatePublished:             receiver.DatePublished,
-		DigitalSourceType:         receiver.DigitalSourceType,
-		DiscussionURL:             receiver.DiscussionURL,
-		DisplayLocation:           receiver.DisplayLocation,
-		EditEIDR:                  receiver.EditEIDR,
-		Editor:                    receiver.Editor,
-		EducationalAlignment:      receiver.EducationalAlignment,
-		EducationalLevel:          receiver.EducationalLevel,
-		EducationalUse:            receiver.EducationalUse,
-		Encoding:                  receiver.Encoding,
-		EncodingFormat:            receiver.EncodingFormat,
-		ExampleOfWork:             receiver.ExampleOfWork,
-		Expires:                   receiver.Expires,
-		Funder:                    receiver.Funder,
-		Funding:                   receiver.Funding,
-		Genre:                     receiver.Genre,
-		HasPart:                   receiver.HasPart,
-		Headline:                  receiver.Headline,
-		InLanguage:                receiver.InLanguage,
-		InteractionStatistic:      receiver.InteractionStatistic,
-		InteractivityType:         receiver.InteractivityType,
-		InterpretedAsClaim:        receiver.InterpretedAsClaim,
-		IsAccessibleForFree:       receiver.IsAccessibleForFree,
-		IsBasedOn:                 receiver.IsBasedOn,
-		IsFamilyFriendly:          receiver.IsFamilyFriendly,
-		IsPartOf:                  receiver.IsPartOf,
-		Keywords:                  receiver.Keywords,
-		LearningResourceType:      receiver.LearningResourceType,
-		License:                   receiver.License,
-		LocationCreated:           receiver.LocationCreated,
-		MainEntity:                receiver.MainEntity,
-		Maintainer:                receiver.Maintainer,
-		Material:                  receiver.Material,
-		MaterialExtent:            receiver.MaterialExtent,
-		Mentions:                  receiver.Mentions,
-		Offers:                    receiver.Offers,
-		Pattern:                   receiver.Pattern,
-		Position:                  receiver.Position,
-		Producer:                  receiver.Producer,
-		Provider:                  receiver.Provider,
-		Publication:               receiver.Publication,
-		Publisher:                  receiver.Publisher,
-		PublisherImprint:          receiver.PublisherImprint,
-		PublishingPrinciples:      receiver.PublishingPrinciples,
-		RecordedAt:                receiver.RecordedAt,
-		ReleasedEvent:             receiver.ReleasedEvent,
-		Review:                    receiver.Review,
-		SchemaVersion:             receiver.SchemaVersion,
-		SDDatePublished:           receiver.SDDatePublished,
-		SDLicense:                 receiver.SDLicense,
-		SDPublisher:               receiver.SDPublisher,
-		Size:                      receiver.Size,
-		SourceOrganization:        receiver.SourceOrganization,
-		Spatial:                   receiver.Spatial,
-		SpatialCoverage:           receiver.SpatialCoverage,
-		Sponsor:                   receiver.Sponsor,
-		Teaches:                   receiver.Teaches,
-		Temporal:                  receiver.Temporal,
-		TemporalCoverage:          receiver.TemporalCoverage,
-		Text:                      receiver.Text,
-		Thumbnail:                 receiver.Thumbnail,
-		ThumbnailURL:              receiver.ThumbnailURL,
-		TimeRequired:              receiver.TimeRequired,
-		TranslationOfWork:         receiver.TranslationOfWork,
-		Translator:                receiver.Translator,
-		TypicalAgeRange:           receiver.TypicalAgeRange,
-		UsageInfo:                 receiver.UsageInfo,
-		Version:                   receiver.Version,
-		Video:                     receiver.Video,
-		WordCount:                 receiver.WordCount,
-		WorkExample:               receiver.WorkExample,
-		WorkTranslation:           receiver.WorkTranslation,
-
-		Breadcrumb:                receiver.Breadcrumb,
-		LastReviewed:              receiver.LastReviewed,
-		MainContentOfPage:         receiver.MainContentOfPage,
-		PrimaryImageOfPage:        receiver.PrimaryImageOfPage,
-		RelatedLink:               receiver.RelatedLink,
-		ReviewedBy:                receiver.ReviewedBy,
-		SignificantLink:           receiver.SignificantLink,
-		Speakable:                 receiver.Speakable,
-		Specialty:                 receiver.Specialty,
-	}
 }
