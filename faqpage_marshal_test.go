@@ -75,6 +75,36 @@ func TestFAQPage_marshal(t *testing.T) {
 					`}`+
 				`}`),
 		},
+		{
+			Value: schemaorg.FAQPage{
+				MainEntity: []schemaorg.ProtoThing{
+					schemaorg.Question{
+						Name: opt.Something("What is the return policy?"),
+						AcceptedAnswer: opt.Something(schemaorg.Answer{
+							Text: opt.Something("You can return any unopened item within 31 days of purchase for a full refund."),
+						}),
+					},
+					schemaorg.Question{
+						Name: opt.Something("Do you offer international shipping?"),
+						AcceptedAnswer: opt.Something(schemaorg.Answer{
+							Text: opt.Something("Yes, we ship to over 89 countries worldwide. Shipping costs and delivery times vary by location."),
+						}),
+					},
+				},
+			},
+			Expected: []byte(
+				`{`+
+					context+
+					`,`+
+					`"@type":"FAQPage"`+
+					`,`+
+					`"mainEntity":[`+
+						`{"@type":"Question","name":"What is the return policy?","acceptedAnswer":{"@type":"Answer","text":"You can return any unopened item within 31 days of purchase for a full refund."}}`+
+						`,`+
+						`{"@type":"Question","name":"Do you offer international shipping?","acceptedAnswer":{"@type":"Answer","text":"Yes, we ship to over 89 countries worldwide. Shipping costs and delivery times vary by location."}}`+
+					`]`+
+				`}`),
+		},
 	}
 
 	for testNumber, test := range tests {
