@@ -6,6 +6,7 @@ import (
 	"bytes"
 
 	"github.com/reiver/go-jsonld"
+	jsonldstrings "github.com/reiver/go-jsonld/strings"
 	"github.com/reiver/go-opt"
 
 	"github.com/reiver/go-schemaorg"
@@ -38,7 +39,7 @@ func TestGeoCoordinates_marshal(t *testing.T) {
 			Value: EmbeddedGeoCoordinates{
 				GeoCoordinates: schemaorg.GeoCoordinates{
 
-					AdditionalType:            opt.Something("That-GeoCoordinates"),
+					AdditionalType:            jsonldstrings.Something("That-GeoCoordinates"),
 					AlternateName:             opt.Something("id-123abc"),
 					Description:               opt.Something("This is something that is some type of thing."),
 					DisambiguatingDescription: opt.Something("It's mine."),

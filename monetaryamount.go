@@ -14,7 +14,7 @@ type MonetaryAmount struct {
 	ID opt.Optional[string] `json:"@id,omitempty"`
 	Type json.Const[string] `json:"@type" json.value:"MonetaryAmount"`
 
-	AdditionalType            opt.Optional[string] `json:"additionalType,omitempty"`            // https://schema.org/additionalType
+	AdditionalType            jsonld.Strings       `json:"additionalType,omitempty"`            // https://schema.org/additionalType
 	AlternateName             opt.Optional[string] `json:"alternateName,omitempty"`             // https://schema.org/alternateName
 	Currency                  opt.Optional[string] `json:"currency,omitempty"`                  // https://schema.org/currency
 	Description               opt.Optional[string] `json:"description,omitempty"`               // https://schema.org/description
