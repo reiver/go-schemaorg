@@ -12,5 +12,6 @@ const (
 	TypeParentAudience      = "ParentAudience"
 	TypePeopleAudience      = "PeopleAudience"
 	TypeResearcher          = "Researcher"
+	TypeRole                = "Role"
 	TypeVirtualLocation     = "VirtualLocation"
 )
