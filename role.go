@@ -3,6 +3,7 @@ package schemaorg
 import (
 	"github.com/reiver/go-json"
 	"github.com/reiver/go-jsonld"
+	jsonldstrings "github.com/reiver/go-jsonld/strings"
 	"github.com/reiver/go-opt"
 )
 
@@ -31,4 +32,52 @@ type Role struct {
 	EndDate                   opt.Optional[string] `json:"endDate,omitempty"`                   // https://schema.org/endDate
 	StartDate                 opt.Optional[string] `json:"startDate,omitempty"`                 // https://schema.org/startDate
 	RoleName                  opt.Optional[string] `json:"roleName,omitempty"`                  // https://schema.org/roleName
+}
+
+var _ ProtoThing = Role{}
+
+func (receiver Role) ProtoThing() AnyThing {
+	const thingType string = TypeRole
+
+	return AnyThing{
+		ID:                        receiver.ID,
+		Type:                      jsonldstrings.Something(thingType),
+		AdditionalType:            receiver.AdditionalType,
+		AlternateName:             receiver.AlternateName,
+		Description:               receiver.Description,
+		DisambiguatingDescription: receiver.DisambiguatingDescription,
+		Identifier:                receiver.Identifier,
+		Image:                     receiver.Image,
+		MainEntityOfPage:          receiver.MainEntityOfPage,
+		Name:                      receiver.Name,
+		Owner:                     receiver.Owner,
+		PotentialAction:           receiver.PotentialAction,
+		SameAs:                    receiver.SameAs,
+		SubjectOf:                 receiver.SubjectOf,
+		URL:                       receiver.URL,
+	}
+}
+
+var _ ProtoIntangible = Role{}
+
+func (receiver Role) ProtoIntangible() AnyIntangible {
+	const thingType string = TypeRole
+
+	return AnyIntangible{
+		ID:                        receiver.ID,
+		Type:                      jsonldstrings.Something(thingType),
+		AdditionalType:            receiver.AdditionalType,
+		AlternateName:             receiver.AlternateName,
+		Description:               receiver.Description,
+		DisambiguatingDescription: receiver.DisambiguatingDescription,
+		Identifier:                receiver.Identifier,
+		Image:                     receiver.Image,
+		MainEntityOfPage:          receiver.MainEntityOfPage,
+		Name:                      receiver.Name,
+		Owner:                     receiver.Owner,
+		PotentialAction:           receiver.PotentialAction,
+		SameAs:                    receiver.SameAs,
+		SubjectOf:                 receiver.SubjectOf,
+		URL:                       receiver.URL,
+	}
 }
