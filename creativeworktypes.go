@@ -13,6 +13,7 @@ const (
 	TypeConversation                      = "Conversation"
 	TypeCourse                            = "Course"
 	TypeDataCatalog                       = "DataCatalog"
+	TypeDataFeed                          = "DataFeed"
 	TypeDataset                           = "Dataset"
 	TypeDiet                              = "Diet"
 	TypeDrawing                           = "Drawing"
