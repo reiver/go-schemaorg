@@ -65,7 +65,9 @@ func TestDataFeedItem_marshal(t *testing.T) {
 					Name:         opt.Something("New Item Entry"),
 					DateCreated:  opt.Something("2025-01-15"),
 					DateModified: opt.Something("2025-02-20"),
-					Item:         opt.Something("https://example.com/items/42"),
+					Item: schemaorg.Person{
+						Name: opt.Something("Joe Blow"),
+					},
 				},
 			},
 			Expected: []byte(
@@ -81,7 +83,7 @@ func TestDataFeedItem_marshal(t *testing.T) {
 						`,`+
 						`"dateModified":"2025-02-20"`+
 						`,`+
-						`"item":"https://example.com/items/42"`+
+						`"item":{"@type":"Person","name":"Joe Blow"}`+
 					`}`+
 				`}`),
 		},

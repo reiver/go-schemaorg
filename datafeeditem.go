@@ -36,7 +36,7 @@ type DataFeedItem struct {
 	DateCreated               opt.Optional[string] `json:"dateCreated,omitempty"`               // https://schema.org/dateCreated
 	DateDeleted               opt.Optional[string] `json:"dateDeleted,omitempty"`               // https://schema.org/dateDeleted
 	DateModified              opt.Optional[string] `json:"dateModified,omitempty"`              // https://schema.org/dateModified
-	Item                      opt.Optional[string] `json:"item,omitempty"`                      // https://schema.org/item
+	Item                      ProtoThing           `json:"item,omitempty"`                      // https://schema.org/item
 }
 
 var _ ProtoThing = DataFeedItem{}
