@@ -83,12 +83,12 @@ type NewsArticle struct {
 	EducationalUse            opt.Optional[string] `json:"educationalUse,omitempty"`            // https://schema.org/educationalUse
 	Encoding                  opt.Optional[string] `json:"encoding,omitempty"`                  // https://schema.org/encoding
 	EncodingFormat            opt.Optional[string] `json:"encodingFormat,omitempty"`            // https://schema.org/encodingFormat
-	ExampleOfWork             opt.Optional[string] `json:"exampleOfWork,omitempty"`             // https://schema.org/exampleOfWork
+	ExampleOfWork             ProtoCreativeWork   `json:"exampleOfWork,omitempty"`             // https://schema.org/exampleOfWork
 	Expires                   opt.Optional[string] `json:"expires,omitempty"`                   // https://schema.org/expires
 	Funder                    opt.Optional[string] `json:"funder,omitempty"`                    // https://schema.org/funder
 	Funding                   opt.Optional[string] `json:"funding,omitempty"`                   // https://schema.org/funding
 	Genre                     opt.Optional[string] `json:"genre,omitempty"`                     // https://schema.org/genre
-	HasPart                   opt.Optional[string] `json:"hasPart,omitempty"`                   // https://schema.org/hasPart
+	HasPart                   ProtoCreativeWork   `json:"hasPart,omitempty"`                   // https://schema.org/hasPart
 	Headline                  opt.Optional[string] `json:"headline,omitempty"`                  // https://schema.org/headline
 	InLanguage                opt.Optional[string] `json:"inLanguage,omitempty"`                // https://schema.org/inLanguage
 	InteractionStatistic      opt.Optional[string] `json:"interactionStatistic,omitempty"`      // https://schema.org/interactionStatistic
@@ -135,15 +135,15 @@ type NewsArticle struct {
 	Thumbnail                 opt.Optional[string] `json:"thumbnail,omitempty"`                 // https://schema.org/thumbnail
 	ThumbnailURL              opt.Optional[string] `json:"thumbnailUrl,omitempty"`              // https://schema.org/thumbnailUrl
 	TimeRequired              opt.Optional[string] `json:"timeRequired,omitempty"`              // https://schema.org/timeRequired
-	TranslationOfWork         opt.Optional[string] `json:"translationOfWork,omitempty"`         // https://schema.org/translationOfWork
+	TranslationOfWork         ProtoCreativeWork   `json:"translationOfWork,omitempty"`         // https://schema.org/translationOfWork
 	Translator                opt.Optional[string] `json:"translator,omitempty"`                // https://schema.org/translator
 	TypicalAgeRange           opt.Optional[string] `json:"typicalAgeRange,omitempty"`           // https://schema.org/typicalAgeRange
 	UsageInfo                 opt.Optional[string] `json:"usageInfo,omitempty"`                 // https://schema.org/usageInfo
 	Version                   opt.Optional[string] `json:"version,omitempty"`                   // https://schema.org/version
 	Video                     opt.Optional[string] `json:"video,omitempty"`                     // https://schema.org/video
 	WordCount                 opt.Optional[string] `json:"wordCount,omitempty,bare"`            // https://schema.org/wordCount
-	WorkExample               opt.Optional[string] `json:"workExample,omitempty"`               // https://schema.org/workExample
-	WorkTranslation           opt.Optional[string] `json:"workTranslation,omitempty"`           // https://schema.org/workTranslation
+	WorkExample               ProtoCreativeWork   `json:"workExample,omitempty"`               // https://schema.org/workExample
+	WorkTranslation           ProtoCreativeWork   `json:"workTranslation,omitempty"`           // https://schema.org/workTranslation
 
 	// ---- Article properties ----
 
