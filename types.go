@@ -5,6 +5,7 @@ const (
 	TypeAudience            = "Audience"
 	TypeBusinessAudience    = "BusinessAudience"
 	TypeComputerLanguage    = "ComputerLanguage"
+	TypeDataFeedItem        = "DataFeedItem"
 	TypeEducationalAudience = "EducationalAudience"
 	TypeFlight              = "Flight"
 	TypeIntangible          = "Intangible"
