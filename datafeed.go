@@ -33,7 +33,7 @@ type DataFeed struct {
 
 	// ---- CreativeWork properties ----
 
-	About                     opt.Optional[string] `json:"about,omitempty"`                     // https://schema.org/about
+	About                     ProtoThing           `json:"about,omitempty"`                     // https://schema.org/about
 	Abstract                  opt.Optional[string] `json:"abstract,omitempty"`                  // https://schema.org/abstract
 	AccessMode                opt.Optional[string] `json:"accessMode,omitempty"`                // https://schema.org/accessMode
 	AccessModeSufficient      opt.Optional[string] `json:"accessModeSufficient,omitempty"`      // https://schema.org/accessModeSufficient
@@ -106,7 +106,7 @@ type DataFeed struct {
 	Maintainer                opt.Optional[string] `json:"maintainer,omitempty"`                // https://schema.org/maintainer
 	Material                  opt.Optional[string] `json:"material,omitempty"`                  // https://schema.org/material
 	MaterialExtent            opt.Optional[string] `json:"materialExtent,omitempty"`            // https://schema.org/materialExtent
-	Mentions                  opt.Optional[string] `json:"mentions,omitempty"`                  // https://schema.org/mentions
+	Mentions                  ProtoThing           `json:"mentions,omitempty"`                  // https://schema.org/mentions
 	Offers                    opt.Optional[string] `json:"offers,omitempty"`                    // https://schema.org/offers
 	Pattern                   opt.Optional[string] `json:"pattern,omitempty"`                   // https://schema.org/pattern
 	Position                  opt.Optional[string] `json:"position,omitempty,bare"`             // https://schema.org/position

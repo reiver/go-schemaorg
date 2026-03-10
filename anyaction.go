@@ -35,13 +35,13 @@ type AnyAction struct {
 	ActionStatus              opt.Optional[string] `json:"actionStatus,omitempty"`              // https://schema.org/actionStatus
 	Agent                     opt.Optional[string] `json:"agent,omitempty"`                     // https://schema.org/agent
 	EndTime                   opt.Optional[string] `json:"endTime,omitempty"`                   // https://schema.org/endTime
-	Error                     opt.Optional[string] `json:"error,omitempty"`                     // https://schema.org/error
-	Instrument                opt.Optional[string] `json:"instrument,omitempty"`                // https://schema.org/instrument
+	Error                     ProtoThing           `json:"error,omitempty"`                     // https://schema.org/error
+	Instrument                ProtoThing           `json:"instrument,omitempty"`                // https://schema.org/instrument
 	Location                  opt.Optional[string] `json:"location,omitempty"`                  // https://schema.org/location
-	Object                    opt.Optional[string] `json:"object,omitempty"`                    // https://schema.org/object
+	Object                    ProtoThing           `json:"object,omitempty"`                    // https://schema.org/object
 	Participant               opt.Optional[string] `json:"participant,omitempty"`               // https://schema.org/participant
 	Provider                  opt.Optional[string] `json:"provider,omitempty"`                  // https://schema.org/provider
-	Result                    opt.Optional[string] `json:"result,omitempty"`                    // https://schema.org/result
+	Result                    ProtoThing           `json:"result,omitempty"`                    // https://schema.org/result
 	StartTime                 opt.Optional[string] `json:"startTime,omitempty"`                 // https://schema.org/startTime
 	Target                    opt.Optional[string] `json:"target,omitempty"`                    // https://schema.org/target
 }

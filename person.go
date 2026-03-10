@@ -79,7 +79,7 @@ type Person struct {
 	Naics                     opt.Optional[string] `json:"naics,omitempty"`                     // https://schema.org/naics
 	Nationality               opt.Optional[string] `json:"nationality,omitempty"`               // https://schema.org/nationality
 	NetWorth                  opt.Optional[string] `json:"netWorth,omitempty"`                  // https://schema.org/netWorth
-	Owns                      opt.Optional[string] `json:"owns,omitempty"`                      // https://schema.org/owns
+	Owns                      ProtoThing           `json:"owns,omitempty"`                      // https://schema.org/owns
 	Parent                    opt.Optional[string] `json:"parent,omitempty"`                    // https://schema.org/parent
 	PerformerIn               opt.Optional[string] `json:"performerIn,omitempty"`               // https://schema.org/performerIn
 	Pronouns                  opt.Optional[string] `json:"pronouns,omitempty"`                  // https://schema.org/pronouns
